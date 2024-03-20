@@ -1,0 +1,371 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(./fonts/Roboto-Light.woff2) format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ /**
+   Убираем внутренние отступы слева тегам списков,
+   у которых есть атрибут class
+  */
+ :where(ul, ol):where([class]) {
+   padding-left: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы body и двум другим тегам,
+   у которых есть атрибут class
+  */
+ body,
+ :where(blockquote, figure):where([class]) {
+   margin: 0;
+ }
+ 
+ /**
+   Убираем внешние отступы вертикали нужным тегам,
+   у которых есть атрибут class
+  */
+ :where(
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   p,
+   ul,
+   ol,
+   dl
+ ):where([class]) {
+   margin-block: 0;
+ }
+ 
+ :where(dd[class]) {
+   margin-left: 0;
+ }
+ 
+ :where(fieldset[class]) {
+   margin-left: 0;
+   padding: 0;
+   border: none;
+ }
+ 
+ /**
+   Убираем стандартный маркер маркированному списку,
+   у которого есть атрибут class
+  */
+ :where(ul[class]) {
+   list-style: none;
+ }
+ 
+ /**
+   Обнуляем вертикальные внешние отступы параграфа,
+   объявляем локальную переменную для внешнего отступа вниз,
+   чтобы избежать взаимодействие с более сложным селектором
+  */
+ p {
+   --paragraphMarginBottom: 24px;
+ 
+   margin-block: 0;
+ }
+ 
+ /**
+   Внешний отступ вниз для параграфа без атрибута class,
+   который расположен не последним среди своих соседних элементов
+  */
+ p:where(:not([class]):not(:last-child)) {
+   margin-bottom: var(--paragraphMarginBottom);
+ }
+ 
+ 
+ /**
+   Упрощаем работу с изображениями
+  */
+ img {
+   display: block;
+   max-width: 100%;
+ }
+ 
+ /**
+   Наследуем свойства шрифт для полей ввода
+  */
+ input,
+ textarea,
+ select,
+ button {
+   font: inherit;
+ }
+ 
+ html {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   height: 100%;
+   /**
+     Плавный скролл
+    */
+   scroll-behavior: smooth;
+ }
+ 
+ body {
+   /**
+     Пригодится в большинстве ситуаций
+     (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+   min-height: 100%;
+   /**
+     Унифицированный интерлиньяж
+    */
+   line-height: 1.5;
+ }
+ 
+ /**
+   Приводим к единому цвету svg-элементы
+  */
+ svg *[fill] { fill: currentColor }
+ svg *[stroke] { stroke: currentColor }
+ 
+ /**
+   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+  */
+ svg * {
+   transition-property: fill, stroke;
+ }
+ 
+ /**
+   Удаляем все анимации и переходы для людей,
+   которые предпочитают их не использовать
+  */
+ @media (prefers-reduced-motion: reduce) {
+   * {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+     scroll-behavior: auto !important;
+   }
+ }
+ :root{
+  --font-family-base:'Roboto',sans-serif;
+ }
+
+ body{
+  font-family: var(--font-family-base);
+ }
+
+.header{
+    padding-inline:113px ;
+    padding-block: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button{
+    border: 0;
+    background-color: transparent;
+}
+.button1{
+  width: 220px;
+  height: 56px;
+  background-color: #5A98D0;
+  margin-top: 71px;
+  border-radius: 10px;
+  border: 0;
+  color: white;
+}
+
+.button2{
+  font-size: 16px;
+  width: 220px;
+  height: 56px;
+  background-color: #5A98D0;
+  margin-top: 50px;
+  border: 0;
+  margin-right: 144px;
+  color: white;
+}
+
+.title{
+  padding-top: 107px;
+  line-height: 74px;
+  font-size: 64px;
+  font-weight: 300;
+  color: #1F3F68;
+}
+
+.title1{
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.title2{
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #1F3F68;
+}
+
+.title3{
+  font-size: 36px;
+  text-align: center;
+  margin-top: 64px;
+  margin-bottom: 32px;
+}
+
+.text{
+  font-weight: 400;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 32px;
+  color: #1F3F68;
+}
+
+.text2{
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #222222;
+
+}
+
+.gradient{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 113px;
+  height: 700px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 32px 0 #BBDEFB;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem;
+  width: 465px;
+  display: flex;
+  flex-direction: column;
+  height: 520px;
+}
+
+.card1{
+  padding-top: 64px;
+  justify-content: center;
+}
+
+.card-logo{
+  align-self: center;
+}
+
+.more{
+  width: 120px;
+  height: 70px;
+  border: 0;
+  background-color: transparent;
+}
+
+.container {
+  flex-wrap: wrap;
+  display: flex;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 15px;
+  justify-content: center;
+}
+
+
+.container1 {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 15px;
+  color: #FFFFFF;
+  font-size: 32px;
+}
+
+@media (max-width: 1300px){
+  .card1{
+    width: 554px;
+  }
+}
+
+.container1 .card1 img {
+  position: relative;
+  z-index: 1;
+}
+
+.container1 .card1 p {
+  position: absolute;
+  top: 15%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.card2{
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+.container1 .card2 img {
+  position: relative;
+  z-index: 1;
+}
+
+.container1 .card2 p {
+  position: absolute;
+  top: 65%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+
+
+
+.container3{
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 112px;
+  padding-left: 113px;
+  color: #FFFFFF;
+  font-size: 32px;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.container2{
+  background-color: #316099;
+  margin-top: 112px;
+  color: #FFFFFF;
+  font-size: 32px;
+  justify-content: space-between;
+
+}
+
+.hr-line{
+  margin: 20px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 1px solid #FFFFFF;
+}
+
+
